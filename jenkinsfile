@@ -1,0 +1,21 @@
+pipeline{
+    agent any
+    stages {
+        stage('build'){
+            steps{
+                sh """
+                    scp dependneic.sh root@172.31.36.78:/root
+                """
+            }
+        }
+        stage('download'){
+            steps{
+                sh """
+                
+                    ssh root@172.31.36.78 'sh dependneic.sh'
+                """
+            }
+
+        }
+    }
+}
